@@ -2535,19 +2535,19 @@ section,
 }
 
 .featured-agents .agent-photo .overlay-info .contact-actions .contact-btn.phone:hover {
-  background: #28a745;
+  background: #191b3a;
 }
 
 .featured-agents .agent-photo .overlay-info .contact-actions .contact-btn.email:hover {
-  background: #dc3545;
+  background: #191b3a;
 }
 
 .featured-agents .agent-photo .achievement-badge {
   position: absolute;
   top: 20px;
   left: 20px;
-  background: linear-gradient(135deg, #ffd700, #ffb700);
-  color: #333;
+  background: #927650;
+  color: #ffffff;
   padding: 8px 16px;
   border-radius: 25px;
   font-size: 12px;
@@ -2559,7 +2559,7 @@ section,
 }
 
 .featured-agents .agent-photo .achievement-badge.expert {
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #0056b3 30%));
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color),#927650 30%));
   color: var(--contrast-color);
 }
 
@@ -2634,7 +2634,7 @@ section,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #0056b3 20%));
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #927650 20%));
   color: var(--contrast-color);
   padding: 12px 28px;
   border-radius: 30px;
@@ -4051,7 +4051,7 @@ section,
 }
 
 .properties .search-bar .search-wrapper .search-field .search-btn {
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #0066cc 20%));
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #191b3a 20%));
   border: none;
   border-radius: 8px;
   padding: 12px 20px;
@@ -4193,32 +4193,32 @@ section,
 }
 
 .properties .property-item .property-image-wrapper .property-status .status-badge.featured {
-  background: linear-gradient(135deg, #ff6b35, #ff8e53);
+  background: #191b3a;
   color: white;
 }
 
 .properties .property-item .property-image-wrapper .property-status .status-badge.new {
-  background: linear-gradient(135deg, #10b981, #34d399);
+  background: #191b3a;
   color: white;
 }
 
 .properties .property-item .property-image-wrapper .property-status .status-badge.sale {
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #0066cc 20%));
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #191b3a 20%));
   color: white;
 }
 
 .properties .property-item .property-image-wrapper .property-status .status-badge.rent {
-  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  background:#191b3a;
   color: white;
 }
 
 .properties .property-item .property-image-wrapper .property-status .status-badge.open {
-  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  background: #191b3a;
   color: white;
 }
 
 .properties .property-item .property-image-wrapper .property-status .status-badge.reduced {
-  background: linear-gradient(135deg, #ef4444, #f87171);
+  background: #191b3a;
   color: white;
 }
 
@@ -4258,7 +4258,7 @@ section,
 }
 
 .properties .property-item .property-image-wrapper .property-actions .action-btn.favorite-btn:hover {
-  background-color: #ef4444;
+  background-color: #191b3a;
   color: white;
 }
 
@@ -4991,7 +4991,7 @@ section,
 }
 
 .property-details .property-info .pricing-section {
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #6a11cb 30%));
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #191b3a 30%));
   padding: 25px;
   border-radius: 20px;
   margin-bottom: 30px;
@@ -9215,3 +9215,72 @@ section,
   color: #555;
 }
 
+.discover-all-agent {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 36px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background 0.3s ease, color 0.3s ease;
+  margin-top: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.discover-all-agent:hover {
+  background: #927650; /* darker tone of accent */
+  color: #fff;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.feedback-form {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.feedback-form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.feedback-form label {
+  font-weight: 600;
+  color: #333;
+}
+
+.feedback-form .form-control,
+.feedback-form .form-select {
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+.feedback-form .form-control:focus,
+.feedback-form .form-select:focus {
+  border-color: var(--accent-color);
+  box-shadow: none;
+}
+
+.feedback-form .btn-primary {
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.feedback-form .btn-primary:hover {
+  background-color: #191b3a;
+  color: #fff;
+}

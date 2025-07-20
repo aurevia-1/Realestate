@@ -1,10 +1,4 @@
-/**
-* Template Name: HomeSpace
-* Template URL: https://bootstrapmade.com/homespace-bootstrap-real-estate-template/
-* Updated: Jul 05 2025 with Bootstrap v5.3.7
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 
 (function() {
   "use strict";
@@ -129,3 +123,4 @@
   window.addEventListener("load", initSwiper);
 
 })();
+
