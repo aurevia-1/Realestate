@@ -62,22 +62,73 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  text-decoration: none;
+}
+
+.whatsapp-icon {
+  background: linear-gradient(145deg, #25d366, #128c7e);
+  color: #fff;
+  padding: 8px 14px;
+  font-size: 24px;
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.7);
+}
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 767px) {
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .whatsapp-icon {
+    padding: 6px 10px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-icon {
+    padding: 6px 10px;
+    font-size: 16px;
+  }
+}
+
+
+ 
+
+
 body {
-  color: #191b3a;
-  background-color: var(--background-color);
   font-family: sans-serif;
+  position: relative;
+  z-index: 0;
+  color: white;
+  background: linear-gradient(rgba(25, 27, 58, 0.6), rgba(25, 27, 58, 0.6)),
+              url('../img/real-estate/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 a {
-  color: var(--accent-color);
+  color: #ffffff;
   text-decoration: none;
   transition: 0.3s;
 }
 
-a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
-  text-decoration: none;
-}
+
 
 h1,
 h2,
@@ -85,7 +136,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--heading-color);
+  color: #ffffff;
   font-family: var(--heading-font);
 }
 
@@ -615,39 +666,6 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Scroll Top Button
---------------------------------------------------------------*/
-.scroll-top {
-  position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 15px;
-  bottom: -15px;
-  z-index: 99999;
-  background-color: var(--accent-color);
-  width: 44px;
-  height: 44px;
-  border-radius: 50px;
-  transition: all 0.4s;
-}
-
-.scroll-top i {
-  font-size: 24px;
-  color: var(--contrast-color);
-  line-height: 0;
-}
-
-.scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
-  color: var(--contrast-color);
-}
-
-.scroll-top.active {
-  visibility: visible;
-  opacity: 1;
-  bottom: 15px;
-}
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
@@ -697,14 +715,27 @@ h6 {
 /*--------------------------------------------------------------
 # Global Sections
 --------------------------------------------------------------*/
-section,
-.section {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 60px 0;
-  scroll-margin-top: 90px;
-  overflow: clip;
+.bg-wrapper {
+  background: linear-gradient(rgba(25, 27, 58, 0.6), rgba(25, 27, 58, 0.6)),
+              url('../img/real-estate/1.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: scroll;
 }
+
+@media (min-width: 992px) {
+  .bg-wrapper {
+    background-attachment: fixed;
+  }
+}
+
+.section-bg {
+  padding: 80px 0;
+  color: white;
+  position: relative;
+  z-index: 1;
+  background: transparent !important; /* force remove old background */
+}
+
 
 @media (max-width: 1199px) {
 
@@ -712,6 +743,14 @@ section,
   .section {
     scroll-margin-top: 66px;
   }
+}
+
+/* Hero ya section ko yeh de do */
+.hero, .section, footer {
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 60px 15px;
+  margin: 0 auto;
 }
 
 /*--------------------------------------------------------------
@@ -726,7 +765,8 @@ section,
 .section-title h2 {
   font-size: 32px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-top: 5rem;
+  margin-bottom: 10px;
   padding-bottom: 20px;
   position: relative;
 }
@@ -753,25 +793,23 @@ section,
 --------------------------------------------------------------*/
 .hero {
   padding-top: 80px;
-  background: linear-gradient(45deg, var(--background-color) 0%, color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
-  min-height: 80vh;
+  padding-bottom: 80px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center; /* center content horizontally */
   position: relative;
-  overflow: hidden;
-  padding-bottom: 80px;
+  z-index: 1; /* upar rahe image se */
+  color: white;
+  /* text-align: center; */
+  /* ❌ koi background ya gradient nahi */
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 95%) 0%, transparent 100%);
-  z-index: 1;
+  /* ❌ remove this pseudo element if you don't need any extra effect */
+  content: none;
 }
+
 
 .hero .hero-wrapper {
   position: relative;
@@ -786,8 +824,8 @@ section,
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: color-mix(in srgb, var(--accent-color), transparent 85%);
-  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 0%);
+  color: var(#ffffff);
   padding: 12px 20px;
   border-radius: 30px;
   font-size: 15px;
@@ -805,7 +843,7 @@ section,
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 20px;
-  color: var(--heading-color);
+  color: var(#ffffff);
 }
 
 @media (max-width: 768px) {
@@ -817,7 +855,7 @@ section,
 .hero .hero-content .content-header p {
   font-size: 1.15rem;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color: #ffffff;
   margin: 0;
 }
 
@@ -1021,6 +1059,10 @@ section,
   flex-direction: column;
   gap: 6px;
 }
+/* .property-details .section{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+} */
 
 .hero .hero-visual .visual-container .featured-property .property-info .property-details span {
   display: flex;
@@ -1127,7 +1169,7 @@ section,
 .hero-visual .visual-container .agent-card .contact-agent-btn {
   width: 44px;
   height: 44px;
-  background: #ffffff; /* WhatsApp green */
+  background: #927650; /* WhatsApp green */
   color: #927650;
   border: none;
   border-radius: 50%;
@@ -1367,8 +1409,9 @@ section,
 
 .home-about .content .section-header .section-label {
   display: inline-block;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 
+  0%);
+  color: var(#ffffff);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
@@ -1393,7 +1436,7 @@ section,
   font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: 2rem;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color: #ffffff;
 }
 
 .home-about .content .achievements-list {
@@ -1424,20 +1467,20 @@ section,
 
 .home-about .content .achievements-list .achievement-item .achievement-icon i {
   font-size: 1.4rem;
-  color: var(--accent-color);
+  color: #ffffff;
 }
 
 .home-about .content .achievements-list .achievement-item .achievement-content h4 {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
-  color: var(--heading-color);
+  color: #ffffff;
 }
 
 .home-about .content .achievements-list .achievement-item .achievement-content p {
   font-size: 0.9rem;
   margin: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color: #ffffff;
 }
 
 .home-about .content .action-section {
@@ -1458,7 +1501,7 @@ section,
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), black 15%));
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #ffffff 15%));
   color: var(--contrast-color);
   padding: 1rem 2rem;
   border-radius: 50px;
@@ -1511,13 +1554,13 @@ section,
 
 .home-about .content .action-section .contact-info .contact-details span {
   font-size: 0.85rem;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color:#ffffff;
   margin-bottom: 0.1rem;
 }
 
 .home-about .content .action-section .contact-info .contact-details strong {
   font-size: 1rem;
-  color: var(--heading-color);
+  color: #ffffff;
   font-weight: 700;
 }
 
@@ -2447,6 +2490,7 @@ section,
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-shadow: 0 8px 25px color-mix(in srgb, var(--default-color), transparent 92%);
   height: 100%;
+  
 }
 
 .featured-agents .agent-wrapper:hover {
@@ -2576,6 +2620,7 @@ section,
 .featured-agents .agent-details {
   padding: 30px 25px;
   text-align: center;
+ 
 }
 
 .featured-agents .agent-details h4 {
@@ -2674,8 +2719,8 @@ section,
   align-items: center;
   gap: 12px;
   background: transparent;
-  color: var(--accent-color);
-  border: 2px solid var(--accent-color);
+  color: var(#927650);
+  background-color: #927650;
   padding: 16px 35px;
   border-radius: 40px;
   text-decoration: none;
@@ -2705,11 +2750,12 @@ section,
   transition: transform 0.3s ease;
 }
 
-.featured-agents .discover-all-agents:hover {
+/* .featured-agents .discover-all-agents:hover {
   color: var(--contrast-color);
   transform: translateY(-4px);
   box-shadow: 0 10px 30px color-mix(in srgb, var(--accent-color), transparent 60%);
-}
+  border: none;
+} */
 
 .featured-agents .discover-all-agents:hover::before {
   left: 0;
@@ -2847,11 +2893,12 @@ section,
 .testimonials .testimonial-meta h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
+    color: #191b3a;
 }
 
 .testimonials .testimonial-meta h4 {
   font-size: 0.875rem;
-  color: color-mix(in srgb, var(--heading-color), transparent 40%);
+    color: #191b3a;
   margin-bottom: 0.75rem;
 }
 
@@ -2874,6 +2921,7 @@ section,
 .testimonials .testimonial-body p {
   font-size: 1rem;
   line-height: 1.6;
+  color: #191b3a;
   margin: 0;
 }
 
@@ -2930,13 +2978,17 @@ section,
 --------------------------------------------------------------*/
 .why-us {
   padding: 80px 0;
-  background-color: var(--surface-color);
+  background: linear-gradient(rgba(25, 27, 58, 0.6), rgba(25, 27, 58, 0.6)),
+              url(../img/real-estate/1.jpg) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white; /* Ensure text is visible */
 }
 
 .why-us .content h3 {
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
-  color: var(--heading-color);
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -2944,7 +2996,7 @@ section,
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 2rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color:#ffffff;
 }
 
 .why-us .features-list .feature-item {
@@ -2976,14 +3028,14 @@ section,
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--heading-color);
+  color: #ffffff;
 }
 
 .why-us .features-list .feature-item p {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: #ffffff;
 }
 
 .why-us .cta-buttons .btn {
@@ -3006,14 +3058,15 @@ section,
 }
 
 .why-us .cta-buttons .btn.btn-outline-primary {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
+  border-color:#ffffff;
+  color: #ffffff;
 }
 
 .why-us .cta-buttons .btn.btn-outline-primary:hover {
   background-color: var(--accent-color);
   color: var(--contrast-color);
   transform: translateY(-2px);
+  border: none;
 }
 
 .why-us .stats-section .stat-card {
@@ -3198,7 +3251,7 @@ section,
 .call-to-action .cta-content p {
   font-size: 1.1rem;
   margin-bottom: 2.5rem;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color: #ffffff;
   line-height: 1.6;
 }
 
@@ -3236,16 +3289,11 @@ section,
 }
 
 .call-to-action .cta-buttons .btn.btn-outline {
-  background-color: transparent;
-  color: var(--accent-color);
-  border-color: var(--accent-color);
+  background-color: #927650;
+  color: #ffffff;
 }
 
-.call-to-action .cta-buttons .btn.btn-outline:hover {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  transform: translateY(-2px);
-}
+
 
 @media (max-width: 576px) {
   .call-to-action .cta-buttons {
@@ -3614,12 +3662,13 @@ section,
 --------------------------------------------------------------*/
 .about .hero-content {
   margin-bottom: 4rem;
+  margin-top: 3rem;
 }
 
 .about .hero-content h2 {
   font-size: 3rem;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, var(--heading-color), var(--accent-color));
+  background: #ffffff;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -3632,13 +3681,13 @@ section,
     font-size: 2.2rem;
     background: none;
     -webkit-text-fill-color: initial;
-    color: var(--heading-color);
+    color: var(#ffffff);
   }
 }
 
 .about .hero-content .hero-description {
   font-size: 1.2rem;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color: #ffffff;
   line-height: 1.7;
   max-width: 800px;
   margin: 0 auto;
@@ -3931,6 +3980,9 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 25%);
   margin-bottom: 2.5rem;
   line-height: 1.7;
+}
+.about .cta-section{
+  margin-bottom: 3rem;
 }
 
 .about .cta-section .action-buttons {
@@ -4672,9 +4724,9 @@ section,
 }
 
 .properties .pagination-wrapper .pagination .page-link {
-  color: var(--default-color);
+  color: #ffffff;
   background-color: transparent;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border: 1px solid #ffffff;
   padding: 10px 16px;
   margin: 0 2px;
   border-radius: 8px;
@@ -4962,7 +5014,7 @@ section,
 .property-details .property-info .property-header .property-title {
   font-size: 36px;
   font-weight: 700;
-  color: var(--heading-color);
+  color: #ffffff;
   margin-bottom: 15px;
   line-height: 1.2;
 }
@@ -4975,17 +5027,17 @@ section,
 }
 
 .property-details .property-info .property-header .property-meta .address {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: #ffffff;
   font-size: 16px;
 }
 
 .property-details .property-info .property-header .property-meta .address i {
-  color: var(--accent-color);
+  color:#ffffff;
   margin-right: 8px;
 }
 
 .property-details .property-info .property-header .property-meta .listing-id {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color: #ffffff;
   font-size: 14px;
   font-weight: 500;
 }
@@ -5072,7 +5124,7 @@ section,
 }
 
 .property-details .property-details h3 {
-  color: var(--heading-color);
+  color: #ffffff;
   margin-bottom: 25px;
   font-weight: 600;
 }
@@ -5080,11 +5132,11 @@ section,
 .property-details .property-details p {
   line-height: 1.7;
   margin-bottom: 20px;
-  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  color: #ffffff;
 }
 
 .property-details .property-details .features-grid h5 {
-  color: var(--heading-color);
+  color: #ffffff;
   margin-bottom: 15px;
   font-weight: 600;
 }
@@ -5106,13 +5158,13 @@ section,
 }
 
 .property-details .property-details .features-grid .feature-list li i {
-  color: var(--accent-color);
+  color: #ffffff;
   margin-right: 12px;
   font-size: 16px;
 }
 
 .property-details .floor-plan-section h3 {
-  color: var(--heading-color);
+  color: #ffffff;
   margin-bottom: 25px;
   font-weight: 600;
 }
@@ -5319,7 +5371,9 @@ section,
   border-radius: 12px;
   padding: 15px;
 }
-
+.property-details  .contact-form-card {
+  margin: bottom 3rem; ;
+}
 .property-details .sticky-sidebar .contact-form-card .form-control:focus,
 .property-details .sticky-sidebar .contact-form-card .form-select:focus {
   border-color: var(--accent-color);
@@ -8418,7 +8472,7 @@ section,
 }
 
 .contact-2 .contact-info-card {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
+  background-color: #ffffff;
   border-radius: 8px;
   padding: 30px;
   display: flex;
@@ -8429,7 +8483,7 @@ section,
 }
 
 .contact-2 .contact-info-card:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+  background-color: #ffffff;
   transform: translateY(-5px);
 }
 
@@ -9141,6 +9195,7 @@ section,
   align-items: center;
   gap: 30px;
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .cta-content {
@@ -9151,11 +9206,13 @@ section,
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 10px;
+  color: #927650;
 }
 
 .cta-content p {
   font-size: 16px;
   margin-bottom: 20px;
+  color: #191b3a;
 }
 
 .cta-buttons {
