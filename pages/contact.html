@@ -31,11 +31,39 @@
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <!-- <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> -->
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+ 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.min.css" />
+<style>
+  .iti {
+    width: 100%;
+  }
+  .iti input {
+    width: 100% !important;
+  }
+  .iti--separate-dial-code .iti__selected-dial-code {
+  color: black !important; /* Dark color for visible text */
+  font-weight: 500; /* Optional: Make it bolder */
+}
+.iti__country-list {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.iti__country-list .iti__country {
+  color: white;
+}
+
+.iti__country:hover {
+  background-color: #333;
+}
+
+</style>
 
   <!-- Main CSS File -->
   <link href="../assets/css/main.css" rel="stylesheet">
+
 </head>
 
 <body class="contact-page">
@@ -74,9 +102,8 @@
           <li><a href="about.html">About</a></li>
           <li><a href="property/properties.html">Properties</a></li>
           <li><a href="service/services.html">Services</a></li>
-          <li><a href="agent/agents.html">Agents</a></li>
+          <li><a href="team/our-team.html">Our Team</a></li>
           <li><a href="contact.html" class="active">Contact</a></li>
-          <li><a href="feedback.html">Feedback</a></li>
         </ul>
       </nav>
 
@@ -154,6 +181,19 @@
                     </div>
                   </div>
 
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="address" placeholder="Your Address" required="">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="tel" id="sidebar-phone" name="phone" class="form-control" placeholder="Your Phone" required>
+                      
+                    </div>
+                  </div>
+
                   <div class="col-12">
                     <div class="form-group">
                       <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
@@ -188,13 +228,13 @@
 
   </main>
 
-  
-<!-- WhatsApp Button -->
-<a href="https://wa.me/971557249926" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
-  <div class="whatsapp-icon">
-    <i class="bi bi-whatsapp"></i>
-  </div>
-</a>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/971557249926" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+    <div class="whatsapp-icon">
+      <i class="bi bi-whatsapp"></i>
+    </div>
+  </a>
 
   <!-- footer -->
   <footer id="footer" class="footer accent-background">
@@ -223,9 +263,8 @@
             <li><a href="about.html" class="active">About</a></li>
             <li><a href="property/properties.html">Properties</a></li>
             <li><a href="service/services.html">Services</a></li>
-            <li><a href="agent/agents.html">Agents</a></li>
+            <li><a href="team/our-team.html">Our Team</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
           </ul>
 
         </div>
@@ -261,13 +300,26 @@
 
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
   <script src="../assets/vendor/aos/aos.js"></script>
   <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script> -->
-
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+ 
   <!-- Main JS File -->
   <script src="../assets/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+<script>
+  const sidebarPhoneInput = document.querySelector("#sidebar-phone");
+  const itiSidebar = window.intlTelInput(sidebarPhoneInput, {
+    initialCountry: "ae",
+    separateDialCode: true,
+    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+  });
+
+  sidebarPhoneInput.addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+</script>
 
 </body>
 

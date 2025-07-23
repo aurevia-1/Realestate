@@ -3841,7 +3841,7 @@ h6 {
 }
 
 .about .features-showcase .feature-content p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color:  var(--default-color);
   line-height: 1.6;
   margin: 0;
   font-size: 0.95rem;
@@ -3977,7 +3977,7 @@ h6 {
 
 .about .cta-section p {
   font-size: 1.1rem;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color:  var(--default-color);
   margin-bottom: 2.5rem;
   line-height: 1.7;
 }
@@ -4035,7 +4035,19 @@ h6 {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
-
+.message-box{
+   background: var(--surface-color);
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 95%);
+  position: relative;
+  color: var(--default-color);
+}
+.message-box h3{
+  color: #927650;
+}
 /*--------------------------------------------------------------
 # Properties Section
 --------------------------------------------------------------*/
@@ -5888,14 +5900,14 @@ h6 {
 
 .agent-profile .agent-info .agent-title {
   font-size: 1.25rem;
-  color: var(--accent-color);
+  color: #ffffff;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
 .agent-profile .agent-info .agent-tagline {
   font-size: 1.1rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: #ffffff;
   font-style: italic;
   margin-bottom: 2rem;
   line-height: 1.6;
@@ -5913,7 +5925,7 @@ h6 {
 }
 
 .agent-profile .contact-info-hero .contact-item i {
-  color: var(--accent-color);
+  color: #ffffff;
   font-size: 1.1rem;
   width: 20px;
 }
@@ -6113,7 +6125,7 @@ h6 {
 
 .agent-profile .bio-content h3,
 .agent-profile .bio-content h4 {
-  color: var(--heading-color);
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 
@@ -6131,7 +6143,7 @@ h6 {
 .agent-profile .bio-content p {
   line-height: 1.7;
   margin-bottom: 1.5rem;
-  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  color: #ffffff;
 }
 
 .agent-profile .bio-content .achievements ul {
@@ -6143,7 +6155,7 @@ h6 {
   position: relative;
   padding-left: 25px;
   margin-bottom: 0.8rem;
-  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  color: #ffffff;
 }
 
 .agent-profile .bio-content .achievements ul li:before {
@@ -6151,7 +6163,7 @@ h6 {
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--accent-color);
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -6687,7 +6699,7 @@ h6 {
 }
 
 .service-details .service-content .service-overview h2 {
-  color: var(--heading-color);
+  color: #ffffff;
   margin-bottom: 1.5rem;
   font-size: 2.5rem;
   font-weight: 700;
@@ -6695,13 +6707,13 @@ h6 {
 
 .service-details .service-content .service-overview .lead {
   font-size: 1.2rem;
-  color: var(--default-color);
+  color: #ffffff;
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
 
 .service-details .service-content .service-overview p {
-  color: var(--default-color);
+  color: #ffffff;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -6711,7 +6723,7 @@ h6 {
 }
 
 .service-details .service-content .service-features h3 {
-  color: var(--heading-color);
+ color: #ffffff;
   margin-bottom: 2rem;
   font-size: 1.8rem;
   font-weight: 600;
@@ -6769,7 +6781,7 @@ h6 {
 }
 
 .service-details .service-content .service-process h3 {
-  color: var(--heading-color);
+  color: #ffffff;
   margin-bottom: 2rem;
   font-size: 1.8rem;
   font-weight: 600;
@@ -6810,14 +6822,14 @@ h6 {
 }
 
 .service-details .service-content .service-process .process-steps .process-step .step-content h5 {
-  color: var(--heading-color);
+   color: #ffffff;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
   font-weight: 600;
 }
 
 .service-details .service-content .service-process .process-steps .process-step .step-content p {
-  color: var(--default-color);
+  color: #ffffff;
   margin: 0;
   line-height: 1.5;
 }
@@ -6827,7 +6839,7 @@ h6 {
 }
 
 .service-details .service-content .service-stats h3 {
-  color: var(--heading-color);
+  color: #ffffff;
   margin-bottom: 2rem;
   font-size: 1.8rem;
   font-weight: 600;
