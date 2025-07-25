@@ -1,6 +1,6 @@
 
 
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -46,7 +46,7 @@
    * Toggle mobile nav dropdowns
    */
   document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
+    navmenu.addEventListener('click', function (e) {
       e.preventDefault();
       this.parentNode.classList.toggle('active');
       this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
@@ -107,7 +107,7 @@
    * Init swiper sliders
    */
   function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+    document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
       let config = JSON.parse(
         swiperElement.querySelector(".swiper-config").innerHTML.trim()
       );
@@ -124,4 +124,63 @@
 
 })();
 
+
+// <!-- Add this at the bottom of the page or inside a script tag -->
+
+const cardsPerPage = 6;
+const cards = document.querySelectorAll('#property-list .col-lg-4');
+const pagination = document.getElementById('pagination');
+let currentPage = 1;
+
+function showPage(page) {
+  const start = (page - 1) * cardsPerPage;
+  const end = start + cardsPerPage;
+
+  cards.forEach((card, index) => {
+    card.style.display = (index >= start && index < end) ? 'block' : 'none';
+  });
+
+  document.querySelectorAll('.pagination button').forEach((btn, i) => {
+    btn.classList.toggle('active', i === page - 1);
+  });
+}
+
+function setupPagination() {
+  const totalPages = Math.ceil(cards.length / cardsPerPage);
+  pagination.innerHTML = '';
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    if (i === currentPage) btn.classList.add('active');
+    btn.addEventListener('click', () => {
+      currentPage = i;
+      showPage(i);
+    });
+    pagination.appendChild(btn);
+  }
+}
+
+// Initialize
+setupPagination();
+showPage(currentPage);
+
+// show less 
+
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.getElementById("toggleDescriptionBtn");
+  const moreText = document.querySelector(".more-text");
+
+  toggleBtn.addEventListener("click", function () {
+    if (moreText.classList.contains("d-none")) {
+      moreText.classList.remove("d-none");
+      toggleBtn.textContent = "Show Less";
+    } else {
+      moreText.classList.add("d-none");
+      toggleBtn.textContent = "Show More";
+    }
+  });
+});
+
+// phone 
 
