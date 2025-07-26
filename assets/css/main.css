@@ -1062,6 +1062,9 @@ h6 {
 .property-details strong{
    color: #ffffff;
 }
+.property-details .st{
+  color: #191b3a;
+}
 .text-muted{
   color: #191b3a !important;
 }
@@ -4273,7 +4276,7 @@ h6 {
 }
 
 .properties .property-item .property-image-wrapper .property-status .status-badge.rent {
-  background:#191b3a;
+  background:#927650;
   color: white;
 }
 
